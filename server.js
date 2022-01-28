@@ -1,6 +1,7 @@
 // Libraries
 const express = require('express')
 const { Pool } = require('pg')
+require('dotenv').config()
 
 // DB Connection
 const localConnection = {
@@ -24,7 +25,7 @@ const db = new Pool(
 // Server
 const app = express()
 
-app.use(express.static(__dirname));
+app.use('/', express.static(__dirname));
 
 app.get('/api', (req, res) => {
     db.query('SELECT * FROM table1;').then(({rows}) => res.send(rows[0]));

@@ -14,8 +14,8 @@ module.exports = (env) => ({
   module: {
     rules: [
       {
-        test: /\.(js|jsx)?$/,
-        include: path.resolve(__dirname, 'client', 'src'),
+        test: /\.(jsx)?$/,
+        include: path.resolve(__dirname),
         exclude: /node_modules/,
         use: [
           {
