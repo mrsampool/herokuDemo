@@ -87,9 +87,17 @@ Based on the message that appears in the browser when opening this app, you will
     - The HTML was successfully served to the browser, but the React app was not rendered properly. If developing locally, trying running `npm run build` again.
 
 ---
+
+## Moving Forward
+
+- `heroku logs --tail`
+    - Run this command to see the stream of logs from your deployed app.
+- Want to update the deployed version of your app? Just commit to your local branch, then push to your heroku remote branch again, which will trigger the build/start process again with your updated code
+
+---
 ## Instructions for Local Development
 
 This app's server checks for `DATABASE_URL` environment variable, which will be automatically passed in by heroku on deployment. If the app doesn't find this environment variables, it will then attempt a connection to a local database via other environment variables, whose values are set from the project's `.env` file. This logic occurs in the `server.js` file.
 
-For local development with a successful database connection, first use `schema.sql` to create the appropriate database, and then adjust the values in the `.env` file to match the configuration of your local PostgreSQL database.
+For local development with a successful database connection, first use `schema.sql` to create the appropriate database, and then adjust the values in the `.env` file to match the configuration of your local PostgreSQL database. Once you have done this, be sure to remove `.env` from git tracking (`git rm --cached .env`) so that your personal db connection info doesn't get pushed to GitHub.
     
